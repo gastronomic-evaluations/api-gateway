@@ -24,6 +24,8 @@ app.get('/api/*', (req, res, next) => {
 app.get('/app/*', (req, res, next) => {
   AppServiceProxy(req, res, next);
 })
+
+app.use('/healthcheck', (req, res) => res.send('alive!'))
  
 app.use(logger('dev'));
 app.use(helmet());
