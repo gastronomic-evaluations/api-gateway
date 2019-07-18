@@ -6,6 +6,6 @@ describe('healthcheck', () => {
     const res = await request(app).get('/healthcheck')
 
     expect(res.status).toBe(200)
-    expect(res.body).toHaveProperty('status', 'alive!')
+    expect(res.body).toHaveProperty('status', 'ok')
   });
 });

@@ -14,4 +14,6 @@ module.exports = (app) => {
   app.route('/').get(LandingPageServiceProxy);
   app.route('/api/*').all(ApiServiceProxy);
   app.route('/app/*').get(AppServiceProxy);
+  app.route('/healthcheck')
+    .get((req, res) => res.status(200).json({ status: 'ok' }));
 }
