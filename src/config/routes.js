@@ -11,7 +11,7 @@ const AppServiceProxy = httpProxy(GASTRONOMIC_EVALUATIONS_APP);
 const LandingPageServiceProxy = httpProxy(LANDING_PAGE);
 
 module.exports = (app) => {
-  app.route('/').get(LandingPageServiceProxy);
+  app.route(['/', '/assets/*']).get(LandingPageServiceProxy);
   app.route('/api/*').all(ApiServiceProxy);
   app.route('/app/*').get(AppServiceProxy);
   app.route('/healthcheck')
