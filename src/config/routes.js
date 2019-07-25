@@ -14,9 +14,9 @@ const LandingPageServiceProxy = httpProxy(LANDING_PAGE);
 
 module.exports = (app) => {
   app.route(['/', '/assets/*']).get(LandingPageServiceProxy);
-  app.route('/api/*').all(ApiServiceProxy);
   app.route('/app/*').get(AppServiceProxy);
-  app.route('/users/api/*').get(UserServiceProxy);
+  app.route('/users/api/*').all(UserServiceProxy);
+  app.route('/restaurants/api/*').all(ApiServiceProxy);
   app.route('/healthcheck')
     .get((req, res) => res.status(200).json({ status: 'ok' }));
 }
